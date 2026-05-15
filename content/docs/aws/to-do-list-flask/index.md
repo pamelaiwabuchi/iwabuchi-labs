@@ -17,7 +17,7 @@ seo:
 git clone https://github.com/jeancosta4/to-do-list.git
 ```
 
-Esse comando clona o repositório, criando uma cópia idêntica do projeto no seu servidor remoto (instância EC2 da AWS) - baixando os arquivos para o disco rígido da instância na nuvem. 
+Esse comando clona o repositório, criando uma cópia idêntica do projeto no seu servidor remoto (instância EC2 da AWS) - baixando os arquivos para o disco rígido da instância na nuvem. Ou seja, não precisa se preocupar em mudar itens do repositório aqui, pois o que você alterar não irá alterar o repositório no git do professor! 
 
 2. Entre na pasta do projeto
 
@@ -50,7 +50,7 @@ Além disso, ele permite que instalemos dezenas de dependências com um único c
 pip install -r requirements.txt
 ```
 
-Obs: no meu caso em específico recebi retorno de erro de `Exception: Can not find valid pkg-config name`. acontece porque o pacote mysqlclient (uma dependência do Flask-MySQLdb) precisa ser compilado durante a instalação, e para isso ele exige algumas bibliotecas do sistema (C e MySQL) que não estão instaladas no meu Ubuntu. No meu caso, o problema foi resolvido com o comando:
+Obs: no meu caso em específico recebi retorno de erro de `Exception: Can not find valid pkg-config name`. Isso acontece porque o pacote mysqlclient (uma dependência do Flask-MySQLdb) precisa ser compilado durante a instalação, e para isso ele exige algumas bibliotecas do sistema (C e MySQL) que não estão instaladas no meu Ubuntu. No meu caso, o problema foi resolvido com o comando:
 
 ```
 sudo apt update
@@ -79,7 +79,7 @@ Clique em `Editar regras de entrada`.
 
 ![Editar Regras de Entrada](images/editar-regras-de-entrada.png)
 
-Clique em `Adicionar regra` - não edite a regra que já está configurada - provavelmente com Tipo SSH e Porta 22.
+Clique em `Adicionar regra` - não edite a regra que já está configurada por padrão - provavelmente com Tipo SSH e Porta 22.
 
 Após clicar em `Adicionar regra`:
 
@@ -134,10 +134,10 @@ FLUSH PRIVILEGES;
 EXIT;
 ```
 
-Aqui estamos criando o usuário `admin`, definindo a senha e concedendo a ele todos os privilégios no banco `tasks`. Isso é necessário porque:
+Aqui estamos criando o usuário `admin`, definindo a senha e concedendo a ele todos os privilégios apenas na tabela `tasks`. Isso é necessário porque:
 
-- Segurança: o usuário `root`tem poder para apagar o banco de dados inteiro.
-- Isolamento: ao criar o usuário `admin` com acesso apenas ao banco `tasks` garanto que nada será afetado em caso de ataques. - Essa atividade é apenas local e sem dados sensíveis, mas no mercado não se usa a conta `root` para rodar aplicações. O ideal é entender desde já sobre as boas práticas de segurança.
+- Segurança: o usuário `root`tem poder para apagar o banco de dados inteiro e definitivamente não é uma boa prática usá-lo para qualquer tarefa.
+- Isolamento: ao criar o usuário `admin` com acesso apenas à tabela  `tasks` garanto que nada será afetado em caso de ataques. - Essa atividade é apenas local e sem dados sensíveis, mas no mercado não se usa a conta `root` para rodar aplicações. O ideal é entender desde já sobre as boas práticas de segurança.
 
 8. Editar arquivo `app.py`
 
@@ -146,6 +146,8 @@ Agora que o banco de dados foi criado e o usuário `admin` existe, precisamos co
 ``` shell 
 nano app.py
 ```
+
+Note que aqui o mouse não irá funcionar. Navegue pelo documento usando as setas do teclado :)
 
 Altere `user='root'` para `user='admin'`
 Para salvar, pressione `Ctrl + O`
@@ -166,8 +168,9 @@ flask run --host=0.0.0.0
 ```
 
 No meu caso especificamente deu erro de `ModuleNotFoundError: No module named 'flask_mysqldb'`. Isso indica que houve um problema na instalação do `requirements.txt`.
-Esse problema é solucionado com o comando:
+Esse problema foi solucionado com o comando:
 `pip install flask-mysqldb`
+
 Depois disso pode rodar o flask normalmente.
 
 10.  Acesse a aplicação no seu navegador:
