@@ -20,31 +20,6 @@
 [[mounts]]
   source = "data"
   target = "data"
-## partials (map _partials to partials)
-[[mounts]]
-  source = "node_modules/@thulite/doks-core/layouts/_partials"
-  target = "layouts/partials"
-
-[[mounts]]
-  source = "node_modules/@thulite/core/layouts/_partials"
-  target = "layouts/partials"
-
-[[mounts]]
-  source = "node_modules/@thulite/seo/layouts/_partials"
-  target = "layouts/partials"
-
-[[mounts]]
-  source = "node_modules/@thulite/images/layouts/_partials"
-  target = "layouts/partials"
-
-[[mounts]]
-  source = "node_modules/@thulite/inline-svg/layouts/_partials"
-  target = "layouts/partials"
-
-[[mounts]]
-  source = "layouts/_partials"
-  target = "layouts/partials"
-
 
 ## layouts
 [[mounts]]
@@ -71,6 +46,35 @@
 [[mounts]]
   source = "node_modules/@thulite/inline-svg/layouts"
   target = "layouts"
+
+## partials (map _partials to partials)
+[[mounts]]
+  source = "node_modules/@thulite/doks-core/layouts/_partials"
+  target = "layouts/partials"
+
+[[mounts]]
+  source = "node_modules/@thulite/core/layouts/_partials"
+  target = "layouts/partials"
+
+[[mounts]]
+  source = "node_modules/@thulite/seo/layouts/_partials"
+  target = "layouts/partials"
+
+[[mounts]]
+  source = "node_modules/@thulite/images/layouts/_partials"
+  target = "layouts/partials"
+
+[[mounts]]
+  source = "node_modules/@thulite/inline-svg/layouts/_partials"
+  target = "layouts/partials"
+
+[[mounts]]
+  source = "node_modules/@thulite/bootstrap/layouts/_partials"
+  target = "layouts/partials"
+
+[[mounts]]
+  source = "layouts/_partials"
+  target = "layouts/partials"
 
 ## i18n
 [[mounts]]
