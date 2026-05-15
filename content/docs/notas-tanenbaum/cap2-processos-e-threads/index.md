@@ -2,7 +2,7 @@
 title: "Notas sobre Tanenbaum"
 description: "Breves notas sobre o capítulo 2 de tanenbaum - Sistemas Operacionais"
 date: 2026-05-15T15:00:00-03:00
-draft: true
+draft: false
 categories: ["Sistemas Operacionais", "Livros"]
 tags: ["Tanenbaum", "Processos", "Threads"]
 weight: 2
