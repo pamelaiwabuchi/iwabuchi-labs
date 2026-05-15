@@ -49,7 +49,7 @@
 
 ## partials (map _partials to partials)
 [[mounts]]
-  source = "node_modules/@thulite/doks-core/layouts/_partials"
+  source = "node_modules/@thulite/bootstrap/layouts/_partials"
   target = "layouts/partials"
 
 [[mounts]]
@@ -69,12 +69,13 @@
   target = "layouts/partials"
 
 [[mounts]]
-  source = "node_modules/@thulite/bootstrap/layouts/_partials"
+  source = "node_modules/@thulite/doks-core/layouts/_partials"
   target = "layouts/partials"
 
 [[mounts]]
   source = "layouts/_partials"
   target = "layouts/partials"
+
 
 ## i18n
 [[mounts]]
