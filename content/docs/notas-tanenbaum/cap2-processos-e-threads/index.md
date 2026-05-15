@@ -3,10 +3,12 @@ title: "Notas sobre Tanenbaum"
 description: "Breves notas sobre o capítulo 2 de tanenbaum - Sistemas Operacionais"
 date: 2026-05-15T15:00:00-03:00
 draft: false
-categories: ["Sistemas Operacionais", "Livros"]
+categories: ["Sistemas Operacionais"]
 tags: ["Tanenbaum", "Processos", "Threads"]
 weight: 2
+contributors: ["Pamela Iwabuchi"]
 ---
+
 Um processo é uma instancia de um programa em execução Conceitualmente, cada processo tem sua própria CPU virtual.
 
 4 eventos principais faz com que os processos sejam criados:
