@@ -9,9 +9,6 @@ buttons:
   - name: Começar a Leitura
     url: /docs/
     color: primary
-  - name: Repositório GitHub
-    url: https://github.com/pamelaiwabuchi/iwabuchi-labs
-    color: secondary
 params:
   seo:
     title: ""
