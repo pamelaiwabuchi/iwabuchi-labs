@@ -45,7 +45,7 @@ mathEngine = "KaTeX" # "KaTeX" (default) or "MathJax"
   alertDismissable = true # true (default) or false
 
   # Bootstrap
-  bootstrapJavascript = false # false (default) or true
+  bootstrapJavascript = true
 
   # Nav
   sectionSwitcher = false # true or false (default)
