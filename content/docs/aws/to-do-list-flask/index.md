@@ -11,6 +11,7 @@ seo:
   title: "Deploy Flask & MySQL na AWS | Iwabuchi Labs"
   description: "Passo a passo profissional para deploy de aplicações Flask na AWS, cobrindo Security Groups e Unix Socket Authentication."
 ---
+
 1. Com a instância iniciada, rode o comando: 
 
 ``` shell
