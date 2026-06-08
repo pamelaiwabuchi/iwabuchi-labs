@@ -1,19 +1,18 @@
 ---
-title: Conteinerização com Docker e Ambientes Virtuais
+title: "Conteinerização com Docker e Ambientes Virtuais"
+description: "Um guia prático e direto sobre as diferenças entre Docker e venv, estrutura de Dockerfile, Docker Compose e inicialização de aplicações com Flask."
+summary: "Aprenda a isolar ambientes de desenvolvimento, configurar arquivos Dockerfile profissionais seguindo boas práticas de cybersecurity e orquestrar múltiplos containers com Docker Compose."
 date: 2026-06-07T22:57:00-03:00
+lastmod: 2026-06-07T22:57:00-03:00
 draft: false
-tags:
-  - docker
-  - python
-  - flask
-  - linux
-  - devops
-categories:
-  - Desenvolvimento
-  - Infraestrutura
-author: Pamela Iwabuchi
-description: Um guia prático e direto sobre as diferenças entre Docker e venv, estrutura de Dockerfile, Docker Compose e inicialização de aplicações com Flask.
+weight: 120
+toc: true
+tags: ["docker", "python", "flask", "linux", "devops"]
+categories: ["Desenvolvimento", "Infraestrutura"]
+author: "Pamela Iwabuchi"
+seo: {"title":"Conteinerização com Docker e Ambientes Virtuais | Iwabuchi Labs","description":"Guia completo e aprofundado sobre Docker, Dockerfile, Docker Compose e isolamento com venv no Linux Pop!_OS."}
 ---
+
 ## 1. O que é Docker?
 
 O docker é uma plataforma open source que permite o empacotamento e execução de aplicações em containers. Isso resolve o problema clássico onde um software funciona no computador do desenvolvedor, mas dá erro em outros computadores, pois o docker garante que a mesma aplicação com as mesmas dependências rode da mesma forma em qualquer sistema (seja windows, linux, etc.).

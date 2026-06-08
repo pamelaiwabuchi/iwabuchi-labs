@@ -1,4 +1,10 @@
 ---
-title: "Conceitos de Tecnologia"
-description: "Minhas notas e estudos aprofundados sobre conceitos de computação, infraestrutura e desenvolvimento."
+title: AWS
+description: Revisao para prova
+lead: Notas de estudo, guias de deploy e configurações de segurança em ambientes AWS.
+date: 2026-05-14T21:00:00-03:00
+lastmod: 2026-05-14T21:00:00-03:00
+draft: false
+weight: 10
+toc: true
 ---
