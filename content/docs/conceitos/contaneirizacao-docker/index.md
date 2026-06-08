@@ -1,12 +1,13 @@
 ---
 title: "Conteinerização com Docker e Ambientes Virtuais"
-description: "Um guia prático e direto sobre as diferenças entre Docker e venv, estrutura de Dockerfile, Docker Compose e inicialização de aplicações com Flask."
-summary: "Aprenda a isolar ambientes de desenvolvimento, configurar arquivos Dockerfile profissionais seguindo boas práticas de cybersecurity e orquestrar múltiplos containers com Docker Compose."
+description: "Um guia prático, técnico e direto focado nas diferenças entre Docker e venv, estrutura de Dockerfile, orquestração com Docker Compose e inicialização de aplicações com Flask."
+summary: "Aprenda a isolar ambientes de desenvolvimento, configure arquivos Dockerfile profissionais seguindo boas práticas de cybersecurity e orquestre múltiplos containers com Docker Compose."
 date: 2026-06-07T22:57:00-03:00
 lastmod: 2026-06-07T22:57:00-03:00
 draft: false
 weight: 120
 toc: true
+contributors: ["pamela-iwabuchi"]
 tags: ["docker", "python", "flask", "linux", "devops"]
 categories: ["Desenvolvimento", "Infraestrutura"]
 author: "Pamela Iwabuchi"
