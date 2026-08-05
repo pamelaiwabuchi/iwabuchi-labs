@@ -37,9 +37,7 @@ Temos alguns passos para poder chegar á nota final:
 
 O cálculo final é realizado em duas etapas. Primeiro calculamos a nota relacionada a **proposições**:
 
-```
-**Score_proposições** = (0,4 × V_tema) + (0,3 × V_tipo) + (0,2 × V_status) + (0,1 × V_grau)
-```
+Score_proposições = (0,4 × V_tema) + (0,3 × V_tipo) + (0,2 × V_status) + (0,1 × V_grau)
 
 Onde:
 
@@ -50,9 +48,7 @@ Onde:
 
 Com a nota de Proposições, podemos usar a fórmula de **Nota final**:
 
-``` 
-**Score Final** = (0,3 × Presença) + (0,7 × Proposição) + Bônus
-```
+Score Final = (0,3 × Presença) + (0,7 × Proposição) + Bônus
 
 Onde:
 
