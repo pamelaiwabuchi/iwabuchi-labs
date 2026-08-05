@@ -25,11 +25,22 @@ Por fim, se você tiver dúvidas ou quiser aprofundar no assunto, não hesite em
 
 Agora vamos ao que interessa:
 
+Temos alguns passos para poder chegar á nota final:
+
+1. Definir e inserir no banco de dados Pesos para tema, autor, tipo e status de projeto;
+2. Cálculo de Gastos e economia;
+3. Cálculo de proposição;
+4. Verificar bônus de economia, projeto concluído ou comissões;
+5. Cálculo final de desempenho.
+
 ## Fórmulas - Visão Geral
 
 O cálculo final é realizado em duas etapas. Primeiro calculamos a nota relacionada a **proposições**:
 
-$$\text{Score}_{\text{Proposições}} = (0.4 \cdot V_{\text{tema}}) + (0.3 \cdot V_{\text{tipo}}) + (0.2 \cdot V_{\text{status}}) + (0.1 \cdot V_{\text{grau}})$$
+```
+**Score_proposições** = (0,4 × V_tema) + (0,3 × V_tipo) + (0,2 × V_status) + (0,1 × V_grau)
+```
+
 Onde:
 
 - Tema representa 40% da nota de Proposições - define a relevância do trabalho para a sociedade.
@@ -39,7 +50,10 @@ Onde:
 
 Com a nota de Proposições, podemos usar a fórmula de **Nota final**:
 
-$$\text{Score Final} = (0,3 \cdot \text{Presença})  + (0,7 \cdot \text{Proposições}) + \text{Bônus}$$
+``` 
+**Score Final** = (0,3 × Presença) + (0,7 × Proposição) + Bônus
+```
+
 Onde:
 
 - Produção Legislativa/Proposições  (representa 70% da nota final): O foco principal é o que o deputado entrega (Projetos/Proposições).
@@ -51,7 +65,9 @@ Onde:
 **Dica sobre a API** 
 
 Como são muitos dados e uma quantidade absurda de proposições, pegar os dados direto pelos arquivos em formato csv que a câmara disponibiliza é uma excelente opção pra poupar tempo. Descendo mais a tela você encontra arquivos relacionando temas e autores também. 
-## Como definimos pesos?
+
+![api camara](images/api_camara.png)
+![proposicoes API](images/proposicoes-api.png)
 
 ### Temas das Proposições
 
@@ -108,7 +124,7 @@ Primeiro criamos uma tabela de referência chamada `temas_proposicoes` com os te
 
 A API retorna os temas de cada proposição tanto com o nome quanto com o código. Para evitar erros relacionados à acentuação ou uso de maiúsculas e minúsculas, optamos por usar os códigos dos temas. 
 
-![[codTema.png]]
+![Código Tema](images/codTema.png)
 
 ```python
 try:
@@ -401,8 +417,7 @@ https://www2.camara.leg.br/comunicacao/assessoria-de-imprensa/guia-para-jornalis
 
 Dessa forma, podemos avaliar o valor gasto ou economizado por deputado e usamos essa informacao para adicionar um bonus a sua nota. Quanto mais ele economiza, maior é o bonus. 
 
-![[Pasted image 20260727233213.png]]
-
+![cota parlamentar](images/cota-parlamentar.png)
 
 ``` python
 
