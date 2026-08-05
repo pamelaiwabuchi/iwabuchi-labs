@@ -37,7 +37,7 @@ Temos alguns passos para poder chegar á nota final:
 
 O cálculo final é realizado em duas etapas. Primeiro calculamos a nota relacionada a **proposições**:
 
-Score_proposições = (0,4 × V_tema) + (0,3 × V_tipo) + (0,2 × V_status) + (0,1 × V_grau)
+Score_proposições = (0,4 × Peso_tema) + (0,3 × Peso_tipo) + (0,2 × Peso_status) + (0,1 × Peso_grau)
 
 Onde:
 
