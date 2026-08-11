@@ -1,9 +1,9 @@
 ---
-title: "Blog"
-description: "Read product updates, release highlights, and practical tips that explain what’s new, why it matters, and how to get the most value from this project."
+title: "Livros"
+description: "Fichamentos técnicos, sínteses de capítulos e insights extraídos de livros da área de tecnologia"
 summary: ""
-date: 2023-09-07T16:21:44+02:00
-lastmod: 2023-09-07T16:21:44+02:00
+date: 2026-08-11T17:21:44+02:00
+lastmod: 2026-08-11T17:21:44+02:00
 draft: false
 weight: 50
 categories: []
