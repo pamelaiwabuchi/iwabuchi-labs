@@ -29,7 +29,7 @@
   url = "/tutorial/lorem/"
 
 [[main]]
-  name = "Docs"
+  name = "Ver Tudo"
   url = "/docs"
 # url = "/docs/1.0/prologue/introduction/"
   weight = 10
