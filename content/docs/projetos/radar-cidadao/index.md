@@ -448,17 +448,17 @@ print("Coluna score_gastos atualizada com sucesso!")
 
 ### Fórmula para Cálculo de Proposições
 
-O Cálculo foi dividido em 2 partes: score de proposição e o calculo final. Aqui calculamos a nota de cada projeto individual. Como cada deputado pode ter (e tem!) mais de 1 projeto, precisamos somar as quantidades de projetos totais que cada deputado tem para ter a media da nota final dos projetos. 
+O Cálculo foi dividido em 2 partes: score de proposição e o cálculo final. Aqui calculamos a nota de cada projeto individualmente. Como cada deputado pode ter (e tem!) mais de 1 projeto, precisamos somar as quantidades de projetos totais que cada deputado tem para ter a média da nota final dos projetos. 
 
-Dica: Uma coisa que aprendemos errando foi não padronizar as colunas, ou seja, usamos `fk_deputado` em uma tabela e na outra `id_deputado`, isso dificultou muito a montagem do código, pois são muitas tabelas relacionadas e em um certo ponto, ficou confuso. Infelizmente quando percebemos esse erro, seria muito trabalhoso mudar todas as colunas das tabelas e padronizar, pois teríamos que mudar códigos que já estavam em funcionamento, e pelo prazo apertado e outras demandas deixamos de lado. Mas minha sugestão e aprendizagem é: padronize. 
+Dica: Uma coisa que aprendemos errando foi não padronizar as colunas, ou seja, usamos `fk_deputado` em uma tabela e na outra `id_deputado`. Isso dificultou muito a montagem do código, pois são muitas tabelas relacionadas e em um certo ponto, ficou confuso. Infelizmente quando percebemos esse erro, seria muito trabalhoso mudar todas as colunas das tabelas e padronizar, pois teríamos que mudar códigos que já estavam em funcionamento, e pelo prazo apertado e outras demandas deixamos de lado. Mas minha sugestão e aprendizagem é: padronize. 
 
 Criamos a tabela `desempenho` para centralizar as notas de presença, gastos, projetos e a nota final.
 
-Projetos de datas e homenagens (tema 72 - que nao sao citados na constituicao) sao geralmente os tipos de projeto que possuem menos oposicao e mais facilidade de aprovacao. Como eles nao sao citados na constituicao e a aprovacao desses projetos pode inflar a nota dos deputados de forma a nao levar em consideracao projetos de impacto maior na sociedade, decidimos removê-los da nota. 
+Projetos de datas e homenagens (tema 72 - que não são citados na constituição) são geralmente os tipos de projeto que possuem menos oposição e mais facilidade de aprovação. Como eles não são citados na constituição e a aprovação desses projetos pode inflar a nota dos deputados de forma a não levar em consideração projetos de impacto maior na sociedade, decidimos removê-los da nota. 
 
-`WHEN m.volume_valido <=3 THEN 0.0` - Deputados com 3 ou menos projetos recebem a nota 0. Isso impede que autores de um único projeto aprovado assuma o topo do ranking.
+`WHEN m.volume_valido <=3 THEN 0.0` - Deputados com 3 ou menos projetos recebem a nota 0. Isso impede que autores de um único projeto aprovado assumam o topo do ranking.
 
-`WHEN m.volume_valido < 112 THEN m.media_pura * (m.volume_valido / 112.0)` - A mediana de projetos é 112. Aqui avaliamos também a quantidade de projetos propostos. Usamos 112 como parâmetro de controle, ou seja, deputados que produziram abaixo da mediana da camará sofrem um ajuste proporcional na nota final, enquanto os deputados que atingem ou ultrapassam a marca de 112 pontuam integralmente. Essa é uma solução para penalizar quantidade e evitar que um deputado com apenas 5 ou 10 projetos muito bem avaliados fique empatado no topo com quem produziu 150 projetos com a mesma qualidade.
+`WHEN m.volume_valido < 112 THEN m.media_pura * (m.volume_valido / 112.0)` - A mediana de projetos é 112. Aqui avaliamos também a quantidade de projetos propostos. Usamos 112 como parâmetro de controle, ou seja, deputados que produziram abaixo da mediana da câmara sofrem um ajuste proporcional na nota final, enquanto os deputados que atingem ou ultrapassam a marca de 112 pontuam integralmente. Essa é uma solução para penalizar quantidade e evitar que um deputado com apenas 5 ou 10 projetos muito bem avaliados fique empatado no topo com quem produziu 150 projetos com a mesma qualidade.
 
 ``` python
 
@@ -518,6 +518,8 @@ except mysql.connector.Error as erro:
 
 ### Fórmula para Cálculo Final
 
+Agora com a nota de proposições, podemos calcular a nota final!
+
 ``` python
 # Passo 2
 # SCORE FINAL
@@ -534,23 +536,23 @@ try:
         SELECT
             d.fk_deputado,
 
-            -- 1. COMPONENTE BASE: PRESENÇA (Peso Original 0.3)
+        -- 1. COMPONENTE BASE: PRESENÇA (Peso Original 0.3)
             (0.3 * IFNULL(d.score_presenca, 0.0)) AS componente_presenca,
 
-            -- 2. COMPONENTE BASE: PROJETOS (Peso Original 0.7)
+        -- 2. COMPONENTE BASE: PROJETOS (Peso Original 0.7)
             (0.7 * IFNULL(d.score_projetos, 0.0)) AS componente_projetos,
 
-            -- 3. BÔNUS DE GASTOS (Adicional de até 0.10)
+        -- 3. BÔNUS DE GASTOS (Adicional de até 0.10)
             (0.10 * IFNULL(d.score_gastos, 0.0)) AS bonus_gastos,
 
-            -- 4. BÔNUS DE APROVAÇÃO (Adicional de até 0.05)
+        -- 4. BÔNUS DE APROVAÇÃO (Adicional de até 0.05)
             CASE
                 WHEN ap.fk_deputado IS NOT NULL THEN 0.05
                 WHEN av.fk_deputado IS NOT NULL THEN 0.02
                 ELSE 0.0
             END AS bonus_aprovacao,
 
-            -- 5. BÔNUS DE COMISSÃO / ÓRGÃO (Adicional de até 0.10)
+        -- 5. BÔNUS DE COMISSÃO / ÓRGÃO (Adicional de até 0.10)
             (0.10 * IFNULL(lid.maior_peso, 0.00)) AS bonus_orgao
 
         FROM Lumina2.desempenho d
@@ -596,7 +598,7 @@ try:
         # Soma direta: Base (Máximo 1.0) + Bônus Extras (Máximo 0.25)
         score_total = float(comp_pres) + float(comp_proj) + float(b_gastos) + float(b_aprov) + float(b_orgao)
 
-        # Se passar de 1.0 (Nota 10.0 no site), a função min corta e crava em 1.0
+        # Se passar de 1.0 (Nota 10.0 no site), a função min corta e fecha em 1.0
         score_normalizado = max(0.0, min(1.0, score_total))
         lote_updates.append((score_normalizado, fk_deputado))
 
@@ -615,3 +617,40 @@ finally:
     cursor.close()
 
 ```
+
+Explicando algumas partes do código acima:
+
+```
+# nesta parte do código calculamos o bônus de projeto aprovado. Algumas categorias de status de projeto estão bem próximas da aprovação, e se já chegaram nesse estágio é porque já passaram por muitas validações e há grande probabilidade de serem aprovadas. Nesse caso o bônus em cima delas é de 0.02, e o bônus para as aprovadas é de 0.05
+
+#Para saber se tem projetos aprovados (se são aprovados estao nas categorias 98,114,1140 ou 1230)
+        LEFT JOIN (
+            SELECT DISTINCT pd.fk_deputado
+            FROM Lumina2.proposicao_deputados pd
+            INNER JOIN Lumina2.proposicoes p ON pd.fk_proposicao = p.cd_proposicoes
+            INNER JOIN Lumina2.tema_proposicoes tp ON p.cd_proposicoes = tp.id_proposicao
+            WHERE p.codSituacao IN (98, 114, 1140, 1230)
+              AND tp.id_tema <> 72
+              AND pd.fk_deputado IS NOT NULL
+        ) ap ON d.fk_deputado = ap.fk_deputado
+        
+#Aqui vemos se tem projetos perto de serem aprovados
+LEFT JOIN (
+            SELECT DISTINCT pd.fk_deputado
+            FROM Lumina2.proposicao_deputados pd
+            INNER JOIN Lumina2.proposicoes p ON pd.fk_proposicao = p.cd_proposicoes
+            WHERE p.codSituacao IN (920, 924, 930, 1100, 1120)
+              AND pd.fk_deputado IS NOT NULL
+        ) av ON d.fk_deputado = av.fk_deputado
+       
+        
+# Usamos essa informação no início do código na montagem da nota:
+        -- 4. BÔNUS DE APROVAÇÃO (Adicional de até 0.05)
+            CASE
+                WHEN ap.fk_deputado IS NOT NULL THEN 0.05
+                WHEN av.fk_deputado IS NOT NULL THEN 0.02
+                ELSE 0.0
+            END AS bonus_aprovacao,
+```
+
+Aqui finalizo o passo a passo para a criação da fórmula! Se você leu até aqui, obrigada pelo seu tempo! A fórmula foi uma parte muito importante do projeto e fico muito feliz de poder compartilhar!
