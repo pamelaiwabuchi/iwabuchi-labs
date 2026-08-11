@@ -9,9 +9,16 @@ weight: 2
 contributors: ["Pamela Iwabuchi"]
 ---
 
+> **Status:** leitura em andamento.
+> **Próxima etapa:** Implementar testes em python para os algoritmos abordados.
+
+Olá! Essas são algumas das minhas anotações e considerações sobre o livro Entendendo Algoritmos de Aditya Y. Bhargava.
+O autor possui a incrível habilidade de ensinar conceitos complexos de forma divertida e quase palpável. Li este livro pela primeira vez no início do primeiro semestre da faculdade com pouca bagagem teórica, e ainda assim, pude compreender conceitos fundamentais de Ciência da Computação. Retornando a leitura no segundo semestre, posso dizer que é um livro que tem feito total diferença na minha forma de enxergar a programação e como as coisas funcionam por baixo dos panos. Recomendo demais e provavelmente é um livro que lerei novamente outras vezes.
+
+
 ### Pilha de Chamada - Call stack
 
-É uma estrutura de dados do tipo LIFO (Last In, First Out - o último a entrar é o primeiro a sair) - usada pelo interpretador para gerenciar a execução de funções em um programa. 
+É uma estrutura de dados do tipo LIFO (Last In, First Out - o último a entrar é o primeiro a sair) - usada pelo interpretador para gerenciar a execução de funções em um programa.
 
 ``` python
 def funcao_c():
@@ -80,7 +87,7 @@ Para resolver um problema usando DC (dividir para conquistar), devemos seguir do
 ## Hash
 
 Pode ser feita uma tabela hash ao combinar uma função hash com um array.
-Colisões são problemas, é necessário haver uma função hash que minimize colisões. 
+Colisões são problemas, é necessário haver uma função hash que minimize colisões.
 Sao extremamente rápidas para pesquisar, inserir e remover itens.
 Se seu fator de carga for maior que 0,7 será necessário redimensionar a hash.
 são utilizadas como cache de dados, como no caso do Facebook.
@@ -88,11 +95,11 @@ são utilizadas como cache de dados, como no caso do Facebook.
 
 #### Tempo constante
 Tempo de execução O(1). Refere-se a um tempo que continuará sempre o mesmo, independentemente de quão grande a tabela hash possa ficar.
-Ou seja, não importa se a tabela hash tem 1 ou 1 milhão de elementos, o tempo de execução será o mesmo. 
+Ou seja, não importa se a tabela hash tem 1 ou 1 milhão de elementos, o tempo de execução será o mesmo.
 
 ## Pesquisa em largura - Capítulo 6
 
-A pesquisa em largura é um tipo de algoritmo que utiliza grafos, permitindo encontrar o menor caminho entre dois objetos. 
+A pesquisa em largura é um tipo de algoritmo que utiliza grafos, permitindo encontrar o menor caminho entre dois objetos.
 Pode ser usada para:
 - escrever um algoritmo de Inteligencia Artificial que calcula o menor numero de movimentos necessários para a vitória em uma partida de damas.
 Os grafos são uma maneira de modelar como eventos diferentes estão conectados entre si.
@@ -106,24 +113,24 @@ Se houver um problema do tipo "encontre o menor X", tente modelar o seu problema
 ## Filas
 
 Estrutura de dados FIFO (First In First Out)
-push = enqueue 
+push = enqueue
 pop = dequeue
 
 ## Algoritmo de Dijkstra - Capítulo 7
 
-Diferente da pesquisa em largura, que retorna o melhor caminho, com menos segmentos, o Algoritmo de Djikstra atribui um peso a cada segmento. Logo, o algoritmo encontra o caminho com o menor peso total. 
+Diferente da pesquisa em largura, que retorna o melhor caminho, com menos segmentos, o Algoritmo de Djikstra atribui um peso a cada segmento. Logo, o algoritmo encontra o caminho com o menor peso total.
 
 Nela, cada aresta tem um peso e um grafo com pesos é chamado de grafo ponderado (ou grafo valorado). Um grafo sem pesos é chamado de grafo não ponderado (ou grafo não valorado).
 
-Você não pode usar o algoritmo de Dijkstra se tiver arestas com pesos negativos. 
+Você não pode usar o algoritmo de Dijkstra se tiver arestas com pesos negativos.
 
-## Algoritmos gulosos - Capítulo 8 
+## Algoritmos gulosos - Capítulo 8
 
-Trata-se de um algoritmo simples! A cada etapa, escolhe-se a solução ideal, e no fim você tem uma solução global ideal. 
+Trata-se de um algoritmo simples! A cada etapa, escolhe-se a solução ideal, e no fim você tem uma solução global ideal.
 - Algoritmos gulosos otimizam localmente na esperança de acabar em uma otimização global
 - problemas NP-completo não tem uma solução rápida
 - se você estiver tentando resolver um problema NP-completo, o melhor a fazer é usar um algoritmo de aproximação.
-- algoritmos gulosos são fáceis de escrever e tem tempo de execução baixo, portanto eles são bons algoritmos de aproximação. 
+- algoritmos gulosos são fáceis de escrever e tem tempo de execução baixo, portanto eles são bons algoritmos de aproximação.
 
 ## Programação Dinâmica - Capítulo 9
 
@@ -138,7 +145,7 @@ Técnica de resolução de problemas complexos que se baseia na divisão de um p
 ë utilizado na classificacao e tambem na regressao. Ele envolve observar os K-vizinhos mais próximos.
 Classificacao = classificar em grupos
 Regressao = adivinhar uma resposta (como um número)
-Extrair caracteristicas significa converter um item como uma fruta o uusuario, em uma lista de numeros que podem ser comparados. 
+Extrair caracteristicas significa converter um item como uma fruta o uusuario, em uma lista de numeros que podem ser comparados.
 escolher boas caracteristicas é uma parte importante para que um algoritmo dos k-vizinhos mais proximos opere corretamente.
 
 ## algoritmo DIFIIE-Hellman
