@@ -2,7 +2,7 @@
 title: "Sistemas Operacionais (Tanenbaum)"
 description: "Documentação, notas de estudo e resumos sobre arquitetura de Sistemas Operacionais"
 weight: 10
-draft: false
+draft: true
 contributors: ["Pamela Iwabuchi"]
 ---
 
