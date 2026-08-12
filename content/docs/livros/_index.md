@@ -2,6 +2,7 @@
 title: "Livros"
 description: "Fichamentos técnicos, sínteses de capítulos e insights extraídos de livros da área de tecnologia"
 summary: ""
+layout: "list"
 date: 2026-08-11T17:21:44+02:00
 lastmod: 2026-08-11T17:21:44+02:00
 draft: false

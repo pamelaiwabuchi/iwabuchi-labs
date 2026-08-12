@@ -4,6 +4,7 @@ description: "Esta seção reúne a documentação técnica, decisões de arquit
 summary: ""
 date: 2026-08-11T17:21:44+02:00
 lastmod: 2026-08-11T17:21:44+02:00
+layout: "list"
 draft: false
 weight: 50
 categories: []
