@@ -1,7 +1,6 @@
 ---
 title: Cálculo de Desempenho de Deputados - Projeto Radar Cidadão
 description: Explicação detalhada sobre a criação da fórmula e como calcular
-slug: "radar-cidadao"
 date: 2026-07-29T16:00:00-04:00
 draft: false
 categories:
