@@ -16,12 +16,26 @@ Como parte da API (Aprendizagem por Projeto Integrador) do 1º semestre do curso
 
 Neste documento apresento o passo a passo da criação da fórmula.
 
-Primeiro é preciso dizer que esta foi, ao meu ver, a parte mais trabalhosa e empolgante de todo o projeto. Começamos a trabalhar na fórmula desde a primeira sprint, sendo concluída apenas na terceira e com tantos ajustes que a fórmula final é, provavelmente, a vigésima versão da fórmula. Também gostaria de acrescentar que sabemos que ainda há muito a ser melhorado e que existem plataformas que fazem o cálculo de desempenho dos deputados usando outras métricas. Contudo, essa foi a melhor versão que encontramos - considerando o tempo limitado, o fato de que podíamos somente usar os dados da API da Câmara dos Deputados e que este foi nosso primeiro projeto (do qual me orgulho muito!). 
+Primeiro é preciso dizer que esta foi, ao meu ver, a parte mais trabalhosa e empolgante de todo o projeto. Começamos a trabalhar na fórmula desde a primeira sprint, sendo concluída apenas na terceira e com tantos ajustes que a fórmula final é, provavelmente, a vigésima versão da fórmula. Também gostaria de acrescentar que sabemos que ainda há muito a ser melhorado e que existem plataformas que fazem o cálculo de desempenho dos deputados usando outras métricas. Contudo, essa foi a melhor versão que encontramos - considerando o tempo limitado, o fato de que podíamos somente usar os dados da API da Câmara dos Deputados e que este foi nosso primeiro projeto (do qual me orgulho muito!).
 
-*O Radar Cidadão é uma iniciativa totalmente independente desenvolvida por estudantes do curso de Desenvolvimento de Software Multiplataforma (DSM) da FATEC de São José dos Campos. 
+O projeto foi desenvolvido pela Equipe Lumina, composta por:
+
+- Cid Neves (Dev Team)
+- Daiane Santos (Product Owner)
+- Guilherme Ribeiro (Dev Team)
+- Guilherme de Siqueira (Dev Team)
+- Gustavo de Oliveira (Dev Team)
+- Julia Carolina Inácio (Dev Team)
+- Kelwin Silva (Scrum Master)
+- Pamela Iwabuchi (Dev Team)
+- Vinicius de Souza (Dev Team)
+
+[Github do projeto](https://github.com/APILumina/API1_DSM_Lumina)
+
+*O Radar Cidadão é uma iniciativa totalmente independente desenvolvida por estudantes do curso de Desenvolvimento de Software Multiplataforma (DSM) da FATEC de São José dos Campos.
 O projeto funciona sem qualquer tipo de filiação partidária, ideologia política ou apoio a candidatos ou recebimento de verbas governamentais, financiamento de políticos ou dinheiro público. Todos os dados utilizados são extraídos diretamente da API oficial da Câmara dos Deputados.*
 
-Por fim, se você tiver dúvidas ou quiser aprofundar no assunto, não hesite em nos contatar! 
+Por fim, se você tiver dúvidas ou quiser aprofundar no assunto, não hesite em nos contatar!
 
 Agora vamos ao que interessa:
 
@@ -53,14 +67,14 @@ Score Final = (0,3 × Presença) + (0,7 × Proposição) + Bônus
 Onde:
 
 - Produção Legislativa/Proposições  (representa 70% da nota final): O foco principal é o que o deputado entrega (Projetos/Proposições).
-- Presença  (representa 30% da nota final): O compromisso básico de estar nas sessões.         
+- Presença  (representa 30% da nota final): O compromisso básico de estar nas sessões.
 - Bônus de Economia (representa até 1.0 ponto de bônus na nota final): Quanto mais ele economiza, maior será ao bônus.
 - Bônus de Cargos em Comissão (representa até 1.0 ponto de bônus na nota final).
 - Bônus de Projeto aprovado (representa até 0.5 ponto de bônus na nota final).
 
-**Dica sobre a API** 
+**Dica sobre a API**
 
-Como são muitos dados e uma quantidade absurda de proposições, pegar os dados direto pelos arquivos em formato csv que a câmara disponibiliza é uma excelente opção pra poupar tempo. Descendo mais a tela você encontra arquivos relacionando temas e autores também. 
+Como são muitos dados e uma quantidade absurda de proposições, pegar os dados direto pelos arquivos em formato csv que a câmara disponibiliza é uma excelente opção pra poupar tempo. Descendo mais a tela você encontra arquivos relacionando temas e autores também.
 
 ![api camara](images/api_camara.png)
 ![proposicoes API](images/proposicoes-api.png)
@@ -73,7 +87,7 @@ Em relação à temas, utilizamos a Constituição Federal de 1988 como parâmet
 
 *Art. 6º São direitos sociais a educação, a saúde, a alimentação, o trabalho, a moradia, o transporte, o lazer, a segurança, a previdência social, a proteção à maternidade e à infância, a assistência aos desamparados, na forma desta Constituição.*
 
-Logo, projetos que tratam de direitos fundamentais (como Saúde e Segurança) recebem peso máximo (1.0). Temas que não constam nos artigos 5 e 6, mas constam na Constituição recebem peso 0.5, pois estão sujeitos aos artigos 5 e 6, assim entendemos que há uma hierarquia e que seu peso e impacto na vida do cidadão é menor. Por fim, atos simbólicos e meramente administrativos que nem sequer são citados na constituição recebem nota menor de 0.01. 
+Logo, projetos que tratam de direitos fundamentais (como Saúde e Segurança) recebem peso máximo (1.0). Temas que não constam nos artigos 5 e 6, mas constam na Constituição recebem peso 0.5, pois estão sujeitos aos artigos 5 e 6, assim entendemos que há uma hierarquia e que seu peso e impacto na vida do cidadão é menor. Por fim, atos simbólicos e meramente administrativos que nem sequer são citados na constituição recebem nota menor de 0.01.
 
 | **Categoria de Peso**                           | **Base Legal (CF/88)**                                                                                                                              | **Temas da Câmara (Exemplos)**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -82,7 +96,7 @@ Logo, projetos que tratam de direitos fundamentais (como Saúde e Segurança) re
 | **Não Citados / Sem Peso Constitucional (0.1)** | Atos Simbólicos, ritos honoríficos e datas comemorativas sem previsão de alteração em direitos ou deveres.                                          | 72 (Homenagens e Datas Comemorativas).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 ### Tipos de Proposição
 
-As proposições variam de PL (Projeto de Lei),  PEC (Proposta de Emenda à Constituição) à AA (Assinatura de Ata) ou RP (Retirada de pauta), por exemplo. No total são 544 tipos de proposição fornecidas pela API da Câmara dos Deputados. Levamos isso em consideração na atribuição de notas. 
+As proposições variam de PL (Projeto de Lei),  PEC (Proposta de Emenda à Constituição) à AA (Assinatura de Ata) ou RP (Retirada de pauta), por exemplo. No total são 544 tipos de proposição fornecidas pela API da Câmara dos Deputados. Levamos isso em consideração na atribuição de notas.
 
 Dividimos em 5 grandezas, separando por complexidade e dificuldade administrativa, sendo itens meramente administrativos e de mínima complexidade com peso 0.1.
 
@@ -118,7 +132,7 @@ Para o proponente principal do projeto a nota é 1.0. Se ele participou como coa
 
 Primeiro criamos uma tabela de referência chamada `temas_proposicoes` com os temas e pesos. É ela que usaremos para percorrer cada proposição e alocar as notas.
 
-A API retorna os temas de cada proposição tanto com o nome quanto com o código. Para evitar erros relacionados à acentuação ou uso de maiúsculas e minúsculas, optamos por usar os códigos dos temas. 
+A API retorna os temas de cada proposição tanto com o nome quanto com o código. Para evitar erros relacionados à acentuação ou uso de maiúsculas e minúsculas, optamos por usar os códigos dos temas.
 
 ![Código Tema](images/codTema.png)
 
@@ -313,7 +327,7 @@ except Exception as erro:
 
 ### Peso dos tipos:
 
-``` python 
+``` python
 # Mapeamento de Códigos da API da Câmara para Pesos em Tipo
 
 PESOS_CODIGOS_SUPERIORES = {
@@ -375,7 +389,7 @@ except Exception as erro:
 
 ### Peso de autoria:
 
-Como só existem duas possibilidades (Proponente - 1 ou Co-autor - 0), no próprio banco rodamos uma query e criamos uma nova coluna com o valor de 1.0 para quem é autor e 0.5 para quem é co-autor. 
+Como só existem duas possibilidades (Proponente - 1 ou Co-autor - 0), no próprio banco rodamos uma query e criamos uma nova coluna com o valor de 1.0 para quem é autor e 0.5 para quem é co-autor.
 
 ## Fórmula de Proposições detalhada
 ### Score Presença
@@ -411,7 +425,7 @@ cursor.close()
 Com a permissão do professor, usamos dados deste site para informacoes sobre a cota parlamentar:
 https://www2.camara.leg.br/comunicacao/assessoria-de-imprensa/guia-para-jornalistas/cota-parlamentar
 
-Dessa forma, podemos avaliar o valor gasto ou economizado por deputado e usamos essa informacao para adicionar um bonus a sua nota. Quanto mais ele economiza, maior é o bonus. 
+Dessa forma, podemos avaliar o valor gasto ou economizado por deputado e usamos essa informacao para adicionar um bonus a sua nota. Quanto mais ele economiza, maior é o bonus.
 
 ![cota parlamentar](images/cota-parlamentar.png)
 
@@ -448,13 +462,13 @@ print("Coluna score_gastos atualizada com sucesso!")
 
 ### Fórmula para Cálculo de Proposições
 
-O Cálculo foi dividido em 2 partes: score de proposição e o cálculo final. Aqui calculamos a nota de cada projeto individualmente. Como cada deputado pode ter (e tem!) mais de 1 projeto, precisamos somar as quantidades de projetos totais que cada deputado tem para ter a média da nota final dos projetos. 
+O Cálculo foi dividido em 2 partes: score de proposição e o cálculo final. Aqui calculamos a nota de cada projeto individualmente. Como cada deputado pode ter (e tem!) mais de 1 projeto, precisamos somar as quantidades de projetos totais que cada deputado tem para ter a média da nota final dos projetos.
 
-Dica: Uma coisa que aprendemos errando foi não padronizar as colunas, ou seja, usamos `fk_deputado` em uma tabela e na outra `id_deputado`. Isso dificultou muito a montagem do código, pois são muitas tabelas relacionadas e em um certo ponto, ficou confuso. Infelizmente quando percebemos esse erro, seria muito trabalhoso mudar todas as colunas das tabelas e padronizar, pois teríamos que mudar códigos que já estavam em funcionamento, e pelo prazo apertado e outras demandas deixamos de lado. Mas minha sugestão e aprendizagem é: padronize. 
+Dica: Uma coisa que aprendemos errando foi não padronizar as colunas, ou seja, usamos `fk_deputado` em uma tabela e na outra `id_deputado`. Isso dificultou muito a montagem do código, pois são muitas tabelas relacionadas e em um certo ponto, ficou confuso. Infelizmente quando percebemos esse erro, seria muito trabalhoso mudar todas as colunas das tabelas e padronizar, pois teríamos que mudar códigos que já estavam em funcionamento, e pelo prazo apertado e outras demandas deixamos de lado. Mas minha sugestão e aprendizagem é: padronize.
 
 Criamos a tabela `desempenho` para centralizar as notas de presença, gastos, projetos e a nota final.
 
-Projetos de datas e homenagens (tema 72 - que não são citados na constituição) são geralmente os tipos de projeto que possuem menos oposição e mais facilidade de aprovação. Como eles não são citados na constituição e a aprovação desses projetos pode inflar a nota dos deputados de forma a não levar em consideração projetos de impacto maior na sociedade, decidimos removê-los da nota. 
+Projetos de datas e homenagens (tema 72 - que não são citados na constituição) são geralmente os tipos de projeto que possuem menos oposição e mais facilidade de aprovação. Como eles não são citados na constituição e a aprovação desses projetos pode inflar a nota dos deputados de forma a não levar em consideração projetos de impacto maior na sociedade, decidimos removê-los da nota.
 
 `WHEN m.volume_valido <=3 THEN 0.0` - Deputados com 3 ou menos projetos recebem a nota 0. Isso impede que autores de um único projeto aprovado assumam o topo do ranking.
 
@@ -482,7 +496,7 @@ try:
         );
     """
 
-    # 2. agrupa os projetos por deputado, exclui projetos com tema 72 (homenagens, datas) e calcula a média da nota de cada deputado 
+    # 2. agrupa os projetos por deputado, exclui projetos com tema 72 (homenagens, datas) e calcula a média da nota de cada deputado
     query_projetos_unificados = """
         UPDATE Lumina2.desempenho d
         INNER JOIN (
@@ -506,7 +520,7 @@ try:
     print("Processando cálculo do score_projetos...")
     cursor.execute(query_update_score)
     cursor.execute(query_projetos_unificados)
-    
+
     conn.commit()
     print("score_projetos calculado e atualizado com sucesso na tabela desempenho!")
 
@@ -633,7 +647,7 @@ Explicando algumas partes do código acima:
               AND tp.id_tema <> 72
               AND pd.fk_deputado IS NOT NULL
         ) ap ON d.fk_deputado = ap.fk_deputado
-        
+
 #Aqui vemos se tem projetos perto de serem aprovados
 LEFT JOIN (
             SELECT DISTINCT pd.fk_deputado
@@ -642,8 +656,8 @@ LEFT JOIN (
             WHERE p.codSituacao IN (920, 924, 930, 1100, 1120)
               AND pd.fk_deputado IS NOT NULL
         ) av ON d.fk_deputado = av.fk_deputado
-       
-        
+
+
 # Usamos essa informação no início do código na montagem da nota:
         -- 4. BÔNUS DE APROVAÇÃO (Adicional de até 0.05)
             CASE
