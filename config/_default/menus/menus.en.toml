@@ -36,12 +36,12 @@
 
 [[main]]
   name = "Livros"
-  url = "/docs/livros/"
+  url = "docs/livros/"
   weight = 30
 
 [[main]]
   name = "Projetos"
-  url = "/docs/projetos/"
+  url = "docs/projetos/"
   weight = 30
 
 [[main]]
