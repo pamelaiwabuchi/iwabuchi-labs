@@ -42,12 +42,12 @@
 [[main]]
   name = "Projetos"
   url = "/docs/projetos/"
-  weight = 40
+  weight = 30
 
 [[main]]
   name = "Sobre mim"
   url = "/sobre-mim/"
-  weight = 30
+  weight = 40
 
 # [[social]]
 #   name = "Twitter"
