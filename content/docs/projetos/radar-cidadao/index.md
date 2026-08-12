@@ -76,8 +76,8 @@ Onde:
 
 Como são muitos dados e uma quantidade absurda de proposições, pegar os dados direto pelos arquivos em formato csv que a câmara disponibiliza é uma excelente opção pra poupar tempo. Descendo mais a tela você encontra arquivos relacionando temas e autores também.
 
-![api camara](images/api_camara.png)
-![proposicoes API](images/proposicoes-api.png)
+![api camara](./images/api_camara.png)
+![proposicoes API](./images/proposicoes-api.png)
 
 ### Temas das Proposições
 
@@ -134,7 +134,7 @@ Primeiro criamos uma tabela de referência chamada `temas_proposicoes` com os te
 
 A API retorna os temas de cada proposição tanto com o nome quanto com o código. Para evitar erros relacionados à acentuação ou uso de maiúsculas e minúsculas, optamos por usar os códigos dos temas.
 
-![Código Tema](images/codTema.png)
+![Código Tema](./images/codTema.png)
 
 ```python
 try:
@@ -427,7 +427,7 @@ https://www2.camara.leg.br/comunicacao/assessoria-de-imprensa/guia-para-jornalis
 
 Dessa forma, podemos avaliar o valor gasto ou economizado por deputado e usamos essa informacao para adicionar um bonus a sua nota. Quanto mais ele economiza, maior é o bonus.
 
-![cota parlamentar](images/cota-parlamentar.png)
+![cota parlamentar](./images/cota-parlamentar.png)
 
 ``` python
 
